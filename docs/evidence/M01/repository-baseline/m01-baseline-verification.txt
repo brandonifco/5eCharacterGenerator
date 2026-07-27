@@ -1,0 +1,23 @@
+﻿===== DATE =====
+2026-07-27T11:55:51-04:00
+
+===== PROJECT ROOT =====
+C:\Users\bbaker2\5eCharacterGenerator
+
+===== CURRENT FILES =====
+No files found.
+
+===== GIT STATUS =====
+No Git repository initialized.
+
+===== GIT VERSION =====
+git version 2.55.0.windows.3
+
+===== INSTALLED .NET SDKS =====
+8.0.422 [C:\Program Files\dotnet\sdk]
+
+===== POWERSHELL VERSION =====
+5.1.26100.8655
+
+===== OPERATING SYSTEM =====
+Microsoft Windows NT 10.0.26200.0
