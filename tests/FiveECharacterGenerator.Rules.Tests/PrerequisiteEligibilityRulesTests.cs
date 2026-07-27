@@ -237,6 +237,149 @@ public sealed class PrerequisiteEligibilityRulesTests
     }
 
     /// <summary>
+    /// Verifies that a supported failure takes precedence over a later
+    /// unsupported evaluation in all mode.
+    /// </summary>
+    [Fact]
+    public void EvaluateAllReturnsIneligibleWhenNotSatisfiedPrecedesUnsupported()
+    {
+        PrerequisiteDefinition first =
+            CreatePrerequisite("prerequisite.level-one");
+
+        PrerequisiteDefinition second =
+            CreatePrerequisite("prerequisite.optional-source-rule");
+
+        var prerequisiteSet = new PrerequisiteSet(
+            PrerequisiteMatchMode.All,
+            new[]
+            {
+                first,
+                second,
+            });
+
+        EligibilityResult result = PrerequisiteEligibilityRules.Evaluate(
+            prerequisiteSet,
+            new[]
+            {
+                new PrerequisiteEvaluation(
+                    first,
+                    PrerequisiteEvaluationStatus.NotSatisfied,
+                    CreateIssue(
+                        first,
+                        "prerequisite.level-not-met")),
+
+                new PrerequisiteEvaluation(
+                    second,
+                    PrerequisiteEvaluationStatus.Unsupported,
+                    CreateIssue(
+                        second,
+                        "prerequisite.unsupported")),
+            });
+
+        Assert.Equal(EligibilityStatus.Ineligible, result.Status);
+        Assert.True(result.IsSupported);
+        Assert.False(result.IsEligible);
+    }
+
+    /// <summary>
+    /// Verifies that a supported failure takes precedence over an earlier
+    /// unsupported evaluation in all mode.
+    /// </summary>
+    [Fact]
+    public void EvaluateAllReturnsIneligibleWhenUnsupportedPrecedesNotSatisfied()
+    {
+        PrerequisiteDefinition first =
+            CreatePrerequisite("prerequisite.optional-source-rule");
+
+        PrerequisiteDefinition second =
+            CreatePrerequisite("prerequisite.level-one");
+
+        var prerequisiteSet = new PrerequisiteSet(
+            PrerequisiteMatchMode.All,
+            new[]
+            {
+                first,
+                second,
+            });
+
+        EligibilityResult result = PrerequisiteEligibilityRules.Evaluate(
+            prerequisiteSet,
+            new[]
+            {
+                new PrerequisiteEvaluation(
+                    first,
+                    PrerequisiteEvaluationStatus.Unsupported,
+                    CreateIssue(
+                        first,
+                        "prerequisite.unsupported")),
+
+                new PrerequisiteEvaluation(
+                    second,
+                    PrerequisiteEvaluationStatus.NotSatisfied,
+                    CreateIssue(
+                        second,
+                        "prerequisite.level-not-met")),
+            });
+
+        Assert.Equal(EligibilityStatus.Ineligible, result.Status);
+        Assert.True(result.IsSupported);
+        Assert.False(result.IsEligible);
+    }
+
+    /// <summary>
+    /// Verifies that mixed all-mode issues follow prerequisite-set order
+    /// rather than evaluation input order.
+    /// </summary>
+    [Fact]
+    public void EvaluateAllReturnsMixedIssuesInPrerequisiteSetOrder()
+    {
+        PrerequisiteDefinition first =
+            CreatePrerequisite("prerequisite.level-one");
+
+        PrerequisiteDefinition second =
+            CreatePrerequisite("prerequisite.optional-source-rule");
+
+        ValidationIssue firstIssue = CreateIssue(
+            first,
+            "prerequisite.level-not-met");
+
+        ValidationIssue secondIssue = CreateIssue(
+            second,
+            "prerequisite.unsupported");
+
+        var prerequisiteSet = new PrerequisiteSet(
+            PrerequisiteMatchMode.All,
+            new[]
+            {
+                first,
+                second,
+            });
+
+        EligibilityResult result = PrerequisiteEligibilityRules.Evaluate(
+            prerequisiteSet,
+            new[]
+            {
+                new PrerequisiteEvaluation(
+                    second,
+                    PrerequisiteEvaluationStatus.Unsupported,
+                    secondIssue),
+
+                new PrerequisiteEvaluation(
+                    first,
+                    PrerequisiteEvaluationStatus.NotSatisfied,
+                    firstIssue),
+            });
+
+        Assert.Equal(
+            new[]
+            {
+                firstIssue,
+                secondIssue,
+            },
+            result.Issues);
+    }
+
+    /// <summary>
     /// Verifies any-mode eligibility when one prerequisite is satisfied.
     /// </summary>
     [Fact]

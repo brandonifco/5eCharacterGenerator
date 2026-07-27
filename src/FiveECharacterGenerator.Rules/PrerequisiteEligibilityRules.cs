@@ -110,6 +110,7 @@ public static class PrerequisiteEligibilityRules
         PrerequisiteEvaluation[] evaluations)
     {
         List<ValidationIssue> issues = new();
+        bool hasNotSatisfiedEvaluation = false;
         bool hasUnsupportedEvaluation = false;
 
         foreach (PrerequisiteEvaluation evaluation in evaluations)
@@ -121,7 +122,13 @@ public static class PrerequisiteEligibilityRules
 
             issues.Add(evaluation.Issue!);
 
-            if (evaluation.Status == PrerequisiteEvaluationStatus.Unsupported)
+            if (evaluation.Status == PrerequisiteEvaluationStatus.NotSatisfied)
+            {
+                hasNotSatisfiedEvaluation = true;
+            }
+            else if (
+                evaluation.Status
+                == PrerequisiteEvaluationStatus.Unsupported)
             {
                 hasUnsupportedEvaluation = true;
             }
@@ -134,9 +141,20 @@ public static class PrerequisiteEligibilityRules
                 Array.Empty<ValidationIssue>());
         }
 
-        EligibilityStatus status = hasUnsupportedEvaluation
-            ? EligibilityStatus.Unsupported
-            : EligibilityStatus.Ineligible;
+        EligibilityStatus status;
+
+        if (hasNotSatisfiedEvaluation)
+        {
+            status = EligibilityStatus.Ineligible;
+        }
+        else if (hasUnsupportedEvaluation)
+        {
+            status = EligibilityStatus.Unsupported;
+        }
+        else
+        {
+            status = EligibilityStatus.Eligible;
+        }
 
         return new EligibilityResult(status, issues);
     }

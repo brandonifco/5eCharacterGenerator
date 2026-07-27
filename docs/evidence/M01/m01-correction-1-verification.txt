@@ -1,0 +1,115 @@
+===== M01 CORRECTION 1 VERIFICATION =====
+Timestamp: 2026-07-27T14:55:36.0879492-04:00
+Branch: feature/m01-stable-identifiers
+Starting baseline: 438c4e238f16b4f25e4a61808f25b1b7d37a9d80
+
+===== PATCH CHECK =====
+git apply --check --whitespace=error-all C:\Users\bbaker2\5eCharacterGenerator\m01-correction-1-prerequisite-all-semantics.patch
+Exit code: 0
+Result: PASS
+
+===== PATCH APPLICATION =====
+git apply --whitespace=error-all C:\Users\bbaker2\5eCharacterGenerator\m01-correction-1-prerequisite-all-semantics.patch
+Exit code: 0
+Result: PASS
+
+===== CHANGED FILES =====
+src/FiveECharacterGenerator.Rules/PrerequisiteEligibilityRules.cs
+tests/FiveECharacterGenerator.Rules.Tests/PrerequisiteEligibilityRulesTests.cs
+
+===== DIFF CHECK =====
+git diff --check
+Exit code: 0
+Result: PASS
+
+===== RELEASE BUILD =====
+dotnet build .\FiveECharacterGenerator.sln --configuration Release --no-restore
+  FiveECharacterGenerator.CharacterState -> C:\Users\bbaker2\5eCharacterGenerator\src\FiveECharacterGenerator.CharacterState\bin\Release\net8.0\FiveECharacterGenerator.CharacterState.dll
+  FiveECharacterGenerator.Rules -> C:\Users\bbaker2\5eCharacterGenerator\src\FiveECharacterGenerator.Rules\bin\Release\net8.0\FiveECharacterGenerator.Rules.dll
+  FiveECharacterGenerator.CharacterState.Tests -> C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.CharacterState.Tests\bin\Release\net8.0\FiveECharacterGenerator.CharacterState.Tests.dll
+  FiveECharacterGenerator.Generation -> C:\Users\bbaker2\5eCharacterGenerator\src\FiveECharacterGenerator.Generation\bin\Release\net8.0\FiveECharacterGenerator.Generation.dll
+  FiveECharacterGenerator.Rules.Tests -> C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Rules.Tests\bin\Release\net8.0\FiveECharacterGenerator.Rules.Tests.dll
+  FiveECharacterGenerator.Application -> C:\Users\bbaker2\5eCharacterGenerator\src\FiveECharacterGenerator.Application\bin\Release\net8.0\FiveECharacterGenerator.Application.dll
+  FiveECharacterGenerator.Generation.Tests -> C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Generation.Tests\bin\Release\net8.0\FiveECharacterGenerator.Generation.Tests.dll
+  FiveECharacterGenerator.Persistence -> C:\Users\bbaker2\5eCharacterGenerator\src\FiveECharacterGenerator.Persistence\bin\Release\net8.0\FiveECharacterGenerator.Persistence.dll
+  FiveECharacterGenerator.Application.Tests -> C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Application.Tests\bin\Release\net8.0\FiveECharacterGenerator.Application.Tests.dll
+  FiveECharacterGenerator.Desktop -> C:\Users\bbaker2\5eCharacterGenerator\src\FiveECharacterGenerator.Desktop\bin\Release\net8.0\FiveECharacterGenerator.Desktop.dll
+  FiveECharacterGenerator.Persistence.Tests -> C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Persistence.Tests\bin\Release\net8.0\FiveECharacterGenerator.Persistence.Tests.dll
+  FiveECharacterGenerator.Architecture.Tests -> C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Architecture.Tests\bin\Release\net8.0\FiveECharacterGenerator.Architecture.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:04.69
+Exit code: 0
+Result: PASS
+
+===== FULL SOLUTION TESTS =====
+dotnet test .\FiveECharacterGenerator.sln --configuration Release --no-build --logger console;verbosity=minimal
+Test run for C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Generation.Tests\bin\Release\net8.0\FiveECharacterGenerator.Generation.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Application.Tests\bin\Release\net8.0\FiveECharacterGenerator.Application.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.CharacterState.Tests\bin\Release\net8.0\FiveECharacterGenerator.CharacterState.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Architecture.Tests\bin\Release\net8.0\FiveECharacterGenerator.Architecture.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Persistence.Tests\bin\Release\net8.0\FiveECharacterGenerator.Persistence.Tests.dll (.NETCoreApp,Version=v8.0)
+Test run for C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Rules.Tests\bin\Release\net8.0\FiveECharacterGenerator.Rules.Tests.dll (.NETCoreApp,Version=v8.0)
+VSTest version 17.11.1 (x64)
+
+VSTest version 17.11.1 (x64)
+VSTest version 17.11.1 (x64)
+
+
+VSTest version 17.11.1 (x64)
+
+VSTest version 17.11.1 (x64)
+VSTest version 17.11.1 (x64)
+
+
+Starting test execution, please wait...
+Starting test execution, please wait...
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+No test is available in C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Application.Tests\bin\Release\net8.0\FiveECharacterGenerator.Application.Tests.dll. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+No test is available in C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Generation.Tests\bin\Release\net8.0\FiveECharacterGenerator.Generation.Tests.dll. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+
+No test is available in C:\Users\bbaker2\5eCharacterGenerator\tests\FiveECharacterGenerator.Persistence.Tests\bin\Release\net8.0\FiveECharacterGenerator.Persistence.Tests.dll. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+
+
+
+Passed!  - Failed:     0, Passed:    53, Skipped:     0, Total:    53, Duration: 22 ms - FiveECharacterGenerator.CharacterState.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:    22, Skipped:     0, Total:    22, Duration: 21 ms - FiveECharacterGenerator.Architecture.Tests.dll (net8.0)
+
+Passed!  - Failed:     0, Passed:    66, Skipped:     0, Total:    66, Duration: 29 ms - FiveECharacterGenerator.Rules.Tests.dll (net8.0)
+Exit code: 0
+Result: PASS
+
+===== FORMAT VERIFICATION =====
+dotnet format .\FiveECharacterGenerator.sln --verify-no-changes --no-restore
+Exit code: 0
+Result: PASS
+
+===== GIT STATUS =====
+## feature/m01-stable-identifiers...origin/feature/m01-stable-identifiers
+ M src/FiveECharacterGenerator.Rules/PrerequisiteEligibilityRules.cs
+ M tests/FiveECharacterGenerator.Rules.Tests/PrerequisiteEligibilityRulesTests.cs
+?? M01_Mandatory_Correction_1_Prerequisite_All_Semantics.md
+?? apply-m01-correction-1-clean.ps1
+?? apply-m01-correction-1-fixed.ps1
+?? apply-m01-correction-1.ps1
+?? docs/evidence/M01/m01-correction-1-verification.txt
+?? m01-correction-1-prerequisite-all-semantics-handoff.md
+?? m01-correction-1-prerequisite-all-semantics.patch
+?? m01-independent-architecture-public-api-review.md
+?? m01-independent-rules-review.md
+?? m01-independent-testing-review.md
+
+Overall result: PASS
