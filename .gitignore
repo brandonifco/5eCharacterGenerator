@@ -1,0 +1,21 @@
+﻿# Build output
+bin/
+obj/
+artifacts/
+TestResults/
+
+# Coverage
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+
+# IDE and user-specific files
+.vs/
+*.user
+*.suo
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
