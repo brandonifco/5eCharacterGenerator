@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\FiveECharacterGenerator.Generation\FiveECharacterGenerator.Generation.csproj" />
+    <ProjectReference Include="..\FiveECharacterGenerator.Rules\FiveECharacterGenerator.Rules.csproj" />
+    <ProjectReference Include="..\FiveECharacterGenerator.CharacterState\FiveECharacterGenerator.CharacterState.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+﻿===== M01 ASSIGNMENT 2 DEPENDENCY VERIFICATION =====
+Timestamp: 2026-07-27T12:16:38-04:00
+Root: C:\Users\bbaker2\5eCharacterGenerator
+
+===== src\FiveECharacterGenerator.CharacterState\FiveECharacterGenerator.CharacterState.csproj =====
+There are no Project to Project references in project src\FiveECharacterGenerator.CharacterState\FiveECharacterGenerator.CharacterState.csproj.
+
+===== src\FiveECharacterGenerator.Rules\FiveECharacterGenerator.Rules.csproj =====
+Project reference(s)
+--------------------
+..\FiveECharacterGenerator.CharacterState\FiveECharacterGenerator.CharacterState.csproj
+
+===== src\FiveECharacterGenerator.Generation\FiveECharacterGenerator.Generation.csproj =====
+Project reference(s)
+--------------------
+..\FiveECharacterGenerator.Rules\FiveECharacterGenerator.Rules.csproj
+..\FiveECharacterGenerator.CharacterState\FiveECharacterGenerator.CharacterState.csproj
+
+===== src\FiveECharacterGenerator.Application\FiveECharacterGenerator.Application.csproj =====
+Project reference(s)
+--------------------
+..\FiveECharacterGenerator.Generation\FiveECharacterGenerator.Generation.csproj
+..\FiveECharacterGenerator.Rules\FiveECharacterGenerator.Rules.csproj
+..\FiveECharacterGenerator.CharacterState\FiveECharacterGenerator.CharacterState.csproj
+
+===== src\FiveECharacterGenerator.Persistence\FiveECharacterGenerator.Persistence.csproj =====
+Project reference(s)
+--------------------
+..\FiveECharacterGenerator.Application\FiveECharacterGenerator.Application.csproj
+
+===== src\FiveECharacterGenerator.Desktop\FiveECharacterGenerator.Desktop.csproj =====
+Project reference(s)
+--------------------
+..\FiveECharacterGenerator.Application\FiveECharacterGenerator.Application.csproj
+..\FiveECharacterGenerator.Persistence\FiveECharacterGenerator.Persistence.csproj
+
+===== VERIFICATION =====
+dotnet restore: PASS
+dotnet build --configuration Release --no-restore: PASS
+dotnet test --configuration Release --no-build: PASS
+dotnet format --verify-no-changes --no-restore: PASS

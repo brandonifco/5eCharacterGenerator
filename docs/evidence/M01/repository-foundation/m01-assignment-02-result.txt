@@ -1,0 +1,38 @@
+﻿===== M01 ASSIGNMENT 2 RESULT =====
+Timestamp: 2026-07-27T12:11:57-04:00
+Root: C:\Users\bbaker2\5eCharacterGenerator
+Solution: C:\Users\bbaker2\5eCharacterGenerator\FiveECharacterGenerator.sln
+
+===== TOOLCHAIN =====
+8.0.422
+
+===== SOLUTION PROJECTS =====
+Project(s)
+----------
+src\FiveECharacterGenerator.Application\FiveECharacterGenerator.Application.csproj
+src\FiveECharacterGenerator.CharacterState\FiveECharacterGenerator.CharacterState.csproj
+src\FiveECharacterGenerator.Desktop\FiveECharacterGenerator.Desktop.csproj
+src\FiveECharacterGenerator.Generation\FiveECharacterGenerator.Generation.csproj
+src\FiveECharacterGenerator.Persistence\FiveECharacterGenerator.Persistence.csproj
+src\FiveECharacterGenerator.Rules\FiveECharacterGenerator.Rules.csproj
+tests\FiveECharacterGenerator.Application.Tests\FiveECharacterGenerator.Application.Tests.csproj
+tests\FiveECharacterGenerator.Architecture.Tests\FiveECharacterGenerator.Architecture.Tests.csproj
+tests\FiveECharacterGenerator.CharacterState.Tests\FiveECharacterGenerator.CharacterState.Tests.csproj
+tests\FiveECharacterGenerator.Generation.Tests\FiveECharacterGenerator.Generation.Tests.csproj
+tests\FiveECharacterGenerator.Persistence.Tests\FiveECharacterGenerator.Persistence.Tests.csproj
+tests\FiveECharacterGenerator.Rules.Tests\FiveECharacterGenerator.Rules.Tests.csproj
+
+===== VERIFICATION =====
+dotnet restore: PASS
+dotnet build --configuration Release --no-restore: PASS
+dotnet test --configuration Release --no-build: PASS
+dotnet format --verify-no-changes --no-restore: PASS
+
+===== GIT STATUS =====
+## main
+?? .editorconfig
+?? Directory.Build.props
+?? FiveECharacterGenerator.sln
+?? global.json
+?? src/
+?? tests/
