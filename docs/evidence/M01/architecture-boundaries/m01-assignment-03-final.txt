@@ -1,0 +1,38 @@
+===== M01 ASSIGNMENT 3 FINAL =====
+Timestamp: 2026-07-27T12:43:01-04:00
+Baseline commit: 52ee43af8018a27112b55a9d3267cefd15da8dac
+
+Bounded objective:
+Add automated enforcement of the approved production-project dependency policy.
+
+Changed production files:
+None.
+
+Changed test files:
+tests/FiveECharacterGenerator.Architecture.Tests/ProjectDependencyPolicyTests.cs
+
+Implemented tests:
+- SolutionContainsEveryExpectedProductionProject
+- ProductionProjectsHaveExactlyTheApprovedReferences
+- DependencyPolicyReportsAForbiddenReference
+
+Verification:
+- Release build: PASS
+- Architecture tests: PASS
+- Full solution tests: PASS
+- Format verification: PASS
+
+Impact:
+- Rules behavior: None
+- Public API: None
+- Persistence: None
+- Generation: None
+- Desktop/UI: None
+- Architecture: Approved project-reference policy is now automatically tested.
+
+Known limitations:
+- Enforcement currently covers project references and expected solution membership.
+- Namespace, assembly-content, and third-party dependency restrictions require later bounded checks.
+
+Assignment disposition:
+READY FOR INDEPENDENT REVIEW
