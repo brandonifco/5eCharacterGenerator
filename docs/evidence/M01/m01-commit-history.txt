@@ -1,0 +1,14 @@
+Implementation baseline: fa9d6532caee175aa35382e11ba0cbe83581b605
+Comparison base: 370ff625a39e5922fb5d19da1a886442b2a17741
+
+===== COMMITS =====
+57cb83d1f67ac77e06e8245331fa18f2adcc30be Record M01 governance foundation
+251eeac9b98959839b1034946b1a4f2224b59558 Confirm initial 2014 rules source inventory
+e382011f9fb0443caca73106cb82851f53b3abf9 Add stable identifiers and source metadata
+681f85c42348b9881c3c21e7e83baa0f6f393ae1 Add structured validation issues
+edf0b343bf8ec5cd743bd600f8a766def97fb4f8 Add derived value breakdowns and audit trails
+db067df5ef56f75abed2d95087d46407847f2ec9 Add prerequisite and eligibility models
+12e9ea6cfe2c5ea6032f539ef6524304c7d1d5d6 Add protected character draft state
+bfb1c60e3ee563d889d07f4424092c681e60e65b Add deterministic character rule evaluation
+4710e9dda6206cc7db528fe71c677f7eff71b99c Enforce Rules assembly isolation
+fa9d6532caee175aa35382e11ba0cbe83581b605 Add representative level-one legality proof
